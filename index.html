@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KoDam Kitchen | Ao Nang & Beachfront, Krabi</title>
+    <meta
+      name="description"
+      content="Authentic Thai cuisine in Krabi. Visit KoDam Kitchen Branch 1 in downtown Ao Nang or Branch 2 on the beachfront at Ao Nam Mao."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                red: "#9b0100",
+                gold: "#ffd915",
+                black: "#111111",
+                ink: "#2a2a2a",
+                mute: "#5c5c5c",
+              },
+              whatsapp: "#25D366",
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', "Georgia", "serif"],
+              sans: ['"Outfit"', "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 18px 50px rgba(0,0,0,0.08)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-brand-ink font-sans antialiased">
+    <header class="absolute inset-x-0 top-0 z-20">
+      <div
+        class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8"
+      >
+        <a href="#home" class="group">
+          <p
+            class="font-serif text-2xl tracking-[0.18em] text-brand-gold drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] group-hover:text-white"
+          >
+            KODAM
+          </p>
+          <p
+            class="text-[10px] uppercase tracking-[0.42em] text-white/90"
+          >
+            Kitchen · Krabi
+          </p>
+        </a>
+        <nav class="hidden gap-8 text-sm tracking-wide text-white/90 sm:flex">
+          <a href="#branches" class="hover:text-brand-gold">Locations</a>
+          <a href="#hours" class="hover:text-brand-gold">Hours</a>
+        </nav>
+      </div>
+    </header>
+
+    <section
+      id="home"
+      class="relative isolate min-h-[72vh] overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-brand-black/55 via-brand-black/35 to-white"
+      ></div>
+      <div
+        class="relative mx-auto flex min-h-[72vh] max-w-3xl flex-col items-center justify-center px-6 pb-16 pt-32 text-center"
+      >
+        <p
+          class="mb-4 text-xs uppercase tracking-[0.5em] text-brand-gold"
+        >
+          Authentic Thai · Seafood · Krabi
+        </p>
+        <h1
+          class="font-serif text-5xl font-semibold leading-tight text-white sm:text-6xl lg:text-7xl"
+        >
+          Two houses.
+          <span class="italic text-brand-gold">One kitchen.</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/90 sm:text-lg">
+          Choose the jungle hideaway in downtown Ao Nang, or the seaside terrace
+          for sunset. Both serve the same beloved Thai table.
+        </p>
+        <a
+          href="#branches"
+          class="mt-10 inline-flex items-center gap-2 border border-brand-gold bg-brand-gold px-8 py-3 text-xs uppercase tracking-[0.28em] text-brand-black transition hover:bg-white hover:text-brand-red"
+        >
+          Choose your branch
+        </a>
+      </div>
+    </section>
+
+    <!-- Branch selector: 2 columns desktop, 1 column mobile -->
+    <section id="branches" class="relative bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div class="mx-auto mb-14 max-w-3xl text-center">
+        <p class="text-xs uppercase tracking-[0.45em] text-brand-gold">
+          Our Locations
+        </p>
+        <h2
+          class="mt-3 font-serif text-4xl text-brand-red sm:text-5xl"
+        >
+          Visit KoDam Kitchen
+        </h2>
+        <div class="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-brand-black/30 to-transparent"></div>
+        <p class="mt-5 text-brand-mute">
+          Two distinct atmospheres — clearly separated so you can pick the
+          experience that suits your evening.
+        </p>
+      </div>
+
+      <div
+        class="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10 lg:divide-x lg:divide-brand-black/10"
+      >
+        <!-- Branch 1 -->
+        <article
+          class="flex flex-col overflow-hidden rounded-2xl border border-brand-black/10 bg-white shadow-soft lg:rounded-none lg:border-0 lg:bg-transparent lg:pr-10 lg:shadow-none"
+        >
+          <div class="relative h-52 overflow-hidden sm:h-64">
+            <img
+              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80"
+              alt="Lush jungle greenery around KoDam Kitchen Branch 1"
+              class="h-full w-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-brand-black/45 via-transparent to-transparent"
+            ></div>
+            <span
+              class="absolute left-5 top-5 rounded-full border border-brand-gold/70 bg-brand-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-brand-gold backdrop-blur"
+            >
+              Branch 01
+            </span>
+          </div>
+
+          <div class="flex flex-1 flex-col p-6 sm:p-8 lg:px-0 lg:pt-8">
+            <p
+              class="text-[11px] uppercase tracking-[0.32em] text-brand-gold"
+            >
+              Downtown Ao Nang
+            </p>
+            <h3
+              class="mt-2 font-serif text-3xl leading-snug text-brand-red sm:text-[2.1rem]"
+            >
+              KoDam Kitchen Branch 1
+              <span class="block text-2xl italic text-brand-black/80"
+                >(Ao Nang Downtown)</span
+              >
+            </h3>
+            <p class="mt-4 text-sm leading-relaxed text-brand-mute">
+              A hidden gem on Khlong Hang Road — close to the market, wrapped in
+              greenery, and favoured by travellers discovering Ao Nang beyond
+              the beach strip.
+            </p>
+
+            <ul class="mt-6 space-y-3">
+              <li
+                class="flex items-start gap-3 border-b border-brand-black/10 pb-3 text-sm text-brand-ink"
+              >
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-red/25 text-brand-red"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="font-medium text-brand-red">No Parking Available</strong>
+                  <span class="block text-brand-mute">Arrive by tuk-tuk, Grab, or on foot from downtown.</span>
+                </span>
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-brand-black/10 pb-3 text-sm text-brand-ink"
+              >
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-red/25 text-brand-red"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 12h19M12 2.5c2.5 3 4 6.2 4 9.5s-1.5 6.5-4 9.5c-2.5-3-4-6.2-4-9.5s1.5-6.5 4-9.5z" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="font-medium text-brand-red">Popular for International Tourists</strong>
+                  <span class="block text-brand-mute">A well-known stop for authentic Thai at a local price.</span>
+                </span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-brand-ink">
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-red/25 text-brand-red"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3c.5 3 3 5.5 6 6-3 .5-5.5 3-6 6-.5-3-3-5.5-6-6 3-.5 5.5-3 6-6z" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="font-medium text-brand-red">Lush Jungle Vibe</strong>
+                  <span class="block text-brand-mute">Alfresco seating among potted greenery and quiet lanes.</span>
+                </span>
+              </li>
+            </ul>
+
+            <a
+              href="https://wa.me/66627231234"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(37,211,102,0.28)] transition hover:bg-[#20bd5a] hover:shadow-[0_16px_36px_rgba(37,211,102,0.4)] sm:w-auto"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Chat on WhatsApp (Branch 1)
+            </a>
+
+            <div class="mt-8 overflow-hidden rounded-xl border border-brand-black/10">
+              <p
+                class="bg-brand-red px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-brand-gold"
+              >
+                Map · Branch 1 · Khlong Hang Rd, Ao Nang
+              </p>
+              <iframe
+                title="Google Map of KoDam Kitchen Branch 1, Ao Nang Downtown"
+                class="h-64 w-full sm:h-72"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=Kodam%20Kitchen%20branch%201%20Ao%20Nang%20Khlong%20Hang&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </article>
+
+        <!-- Branch 2 -->
+        <article
+          class="flex flex-col overflow-hidden rounded-2xl border border-brand-black/10 bg-white shadow-soft lg:rounded-none lg:border-0 lg:bg-transparent lg:pl-10 lg:shadow-none"
+        >
+          <div class="relative h-52 overflow-hidden sm:h-64">
+            <img
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80"
+              alt="Beachfront sunset at KoDam Kitchen Branch 2"
+              class="h-full w-full object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-brand-black/45 via-transparent to-transparent"
+            ></div>
+            <span
+              class="absolute left-5 top-5 rounded-full border border-brand-gold/70 bg-brand-black/70 px-3 py-1 text-[10px] uppercase tracking-[0.28em] text-brand-gold backdrop-blur"
+            >
+              Branch 02
+            </span>
+          </div>
+
+          <div class="flex flex-1 flex-col p-6 sm:p-8 lg:px-0 lg:pt-8">
+            <p
+              class="text-[11px] uppercase tracking-[0.32em] text-brand-gold"
+            >
+              Ao Nam Mao · Seaside
+            </p>
+            <h3
+              class="mt-2 font-serif text-3xl leading-snug text-brand-red sm:text-[2.1rem]"
+            >
+              KoDam Kitchen Branch 2
+              <span class="block text-2xl italic text-brand-black/80"
+                >(Beachfront &amp; Seaside)</span
+              >
+            </h3>
+            <p class="mt-4 text-sm leading-relaxed text-brand-mute">
+              Oceanview dining on the way to the Railay pier — sea breeze, open
+              terrace, and a slower, more romantic evening by the water.
+            </p>
+
+            <ul class="mt-6 space-y-3">
+              <li
+                class="flex items-start gap-3 border-b border-brand-black/10 pb-3 text-sm text-brand-ink"
+              >
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-red/25 text-brand-red"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15s2-4 9-4 9 4 9 4M4 18c2-1.5 5-2.5 8-2.5S18 16.5 20 18" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="font-medium text-brand-red">Beachfront View</strong>
+                  <span class="block text-brand-mute">Open-air tables looking out over Ao Nam Mao bay.</span>
+                </span>
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-brand-black/10 pb-3 text-sm text-brand-ink"
+              >
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-red/25 text-brand-red"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 16h8M5 10h14l-1 8H6l-1-8zm3-3a4 4 0 018 0" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="font-medium text-brand-red">Spacious Private Parking Available</strong>
+                  <span class="block text-brand-mute">Convenient if you are driving from Ao Nang or Krabi Town.</span>
+                </span>
+              </li>
+              <li class="flex items-start gap-3 text-sm text-brand-ink">
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-brand-red/25 text-brand-red"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2m0 14v2M4.2 6.2l1.4 1.4m12.8 12.8l1.4 1.4M3 12h2m14 0h2M4.2 17.8l1.4-1.4m12.8-12.8l1.4-1.4M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </span>
+                <span>
+                  <strong class="font-medium text-brand-red">Romantic Sunset Ambience</strong>
+                  <span class="block text-brand-mute">Arrive 17:00–18:30 for the golden hour over the sea.</span>
+                </span>
+              </li>
+            </ul>
+
+            <a
+              href="https://wa.me/66621724999"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-full bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(37,211,102,0.28)] transition hover:bg-[#20bd5a] hover:shadow-[0_16px_36px_rgba(37,211,102,0.4)] sm:w-auto"
+            >
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+              Chat on WhatsApp (Branch 2)
+            </a>
+
+            <div class="mt-8 overflow-hidden rounded-xl border border-brand-black/10">
+              <p
+                class="bg-brand-red px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-brand-gold"
+              >
+                Map · Branch 2 · Ao Nam Mao, Sai Thai
+              </p>
+              <iframe
+                title="Google Map of KoDam Kitchen Branch 2, Beachfront & Seaside"
+                class="h-64 w-full sm:h-72"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=Kodam%20Kitchen%20Oceanview%20Ao%20Nam%20Mao%20Krabi&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section
+      id="hours"
+      class="border-t border-brand-black/10 bg-[#fafafa] px-6 py-16 text-center"
+    >
+      <p class="text-xs uppercase tracking-[0.4em] text-brand-gold">Hours</p>
+      <p class="mt-3 font-serif text-3xl text-brand-red">Open daily · 11:00 – 22:30</p>
+      <p class="mt-3 text-sm text-brand-mute">
+        Reservations: Branch 1
+        <a class="text-brand-red hover:underline" href="mailto:kodamkitchen19@gmail.com"
+          >kodamkitchen19@gmail.com</a
+        >
+        · Branch 2
+        <a class="text-brand-red hover:underline" href="mailto:kodamkitchen29@gmail.com"
+          >kodamkitchen29@gmail.com</a
+        >
+      </p>
+    </section>
+
+    <footer class="border-t border-brand-black/10 bg-white px-6 py-8 text-center text-xs tracking-wide text-brand-mute">
+      © KoDam Kitchen · Ao Nang &amp; Ao Nam Mao, Krabi
+    </footer>
+  </body>
+</html>
