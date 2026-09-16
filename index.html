@@ -8,6 +8,8 @@
       name="description"
       content="Authentic Thai cuisine in Krabi. Visit KoDam Kitchen Branch 1 in downtown Ao Nang or Branch 2 on the beachfront at Ao Nam Mao."
     />
+    <link rel="icon" href="images/kodam-kitchen-logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="images/kodam-kitchen-logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -15,7 +17,7 @@
           extend: {
             colors: {
               brand: {
-                red: "#9b0100",
+                red: "#b40100",
                 gold: "#ffd915",
                 black: "#111111",
                 ink: "#2a2a2a",
@@ -24,8 +26,9 @@
               whatsapp: "#25D366",
             },
             fontFamily: {
-              serif: ['"Cormorant Garamond"', "Georgia", "serif"],
-              sans: ['"Outfit"', "system-ui", "sans-serif"],
+              serif: ['"Cormorant Garamond"', '"Kanit"', "Georgia", "serif"],
+              sans: ['"Outfit"', '"Kanit"', "system-ui", "sans-serif"],
+              thai: ['"Kanit"', "sans-serif"],
             },
             boxShadow: {
               soft: "0 18px 50px rgba(0,0,0,0.08)",
@@ -37,28 +40,55 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Kanit:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <style>
+      :lang(th),
+      .font-thai {
+        font-family: "Kanit", sans-serif;
+      }
+      .hero-copy {
+        text-shadow:
+          0 1px 2px rgba(0, 0, 0, 0.9),
+          0 2px 12px rgba(0, 0, 0, 0.7),
+          0 0 24px rgba(0, 0, 0, 0.45);
+      }
+      .gallery-item {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: zoom-in;
+      }
+      .gallery-item:focus-visible {
+        outline: 2px solid #b40100;
+        outline-offset: 3px;
+      }
+      #lightbox.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #lightbox.is-open #lightbox-panel {
+        transform: scale(1);
+        opacity: 1;
+      }
+    </style>
   </head>
   <body class="bg-white text-brand-ink font-sans antialiased">
     <header class="absolute inset-x-0 top-0 z-20">
       <div
         class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8"
       >
-        <a href="#home" class="group">
-          <p
-            class="font-serif text-2xl tracking-[0.18em] text-brand-gold drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)] group-hover:text-white"
-          >
-            KODAM
-          </p>
-          <p
-            class="text-[10px] uppercase tracking-[0.42em] text-white/90"
-          >
-            Kitchen · Krabi
-          </p>
+        <a href="#home" class="group inline-flex items-center">
+          <img
+            src="images/kodam-kitchen-logo.png"
+            alt="KoDam Kitchen"
+            class="h-20 w-20 rounded-md object-cover shadow-[0_6px_22px_rgba(0,0,0,0.4)] ring-1 ring-white/25 transition group-hover:ring-brand-gold sm:h-24 sm:w-24 lg:h-28 lg:w-28"
+          />
         </a>
         <nav class="hidden gap-8 text-sm tracking-wide text-white/90 sm:flex">
+          <a href="#menu" class="hover:text-brand-gold">Menu</a>
+          <a href="#atmosphere" class="hover:text-brand-gold">Atmosphere</a>
           <a href="#branches" class="hover:text-brand-gold">Locations</a>
           <a href="#hours" class="hover:text-brand-gold">Hours</a>
         </nav>
@@ -67,38 +97,540 @@
 
     <section
       id="home"
-      class="relative isolate min-h-[72vh] overflow-hidden"
+      class="relative isolate min-h-[72vh] overflow-hidden lg:min-h-[92vh]"
     >
       <div
-        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center"
+        class="absolute inset-0 bg-[url('images/hero-kodam-kitchen.jpg')] bg-cover bg-center"
       ></div>
       <div
-        class="absolute inset-0 bg-gradient-to-b from-brand-black/55 via-brand-black/35 to-white"
+        class="absolute inset-0 bg-gradient-to-b from-brand-black/60 via-transparent via-[62%] to-white"
       ></div>
       <div
-        class="relative mx-auto flex min-h-[72vh] max-w-3xl flex-col items-center justify-center px-6 pb-16 pt-32 text-center"
+        class="relative mx-auto flex min-h-[72vh] max-w-3xl flex-col items-center justify-center px-6 pb-16 pt-32 text-center lg:min-h-[92vh]"
       >
         <p
-          class="mb-4 text-xs uppercase tracking-[0.5em] text-brand-gold"
+          class="hero-copy mb-4 whitespace-nowrap font-serif text-[clamp(1.55rem,6.4vw,4.5rem)] font-semibold tracking-[0.06em] text-white"
         >
-          Authentic Thai · Seafood · Krabi
+          KODAM KITCHEN KRABI
         </p>
         <h1
-          class="font-serif text-5xl font-semibold leading-tight text-white sm:text-6xl lg:text-7xl"
+          lang="th"
+          class="hero-copy font-thai text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl"
         >
-          Two houses.
-          <span class="italic text-brand-gold">One kitchen.</span>
+          อาหารอร่อย บรรยากาศดี
         </h1>
-        <p class="mt-6 max-w-xl text-base font-light leading-relaxed text-white/90 sm:text-lg">
-          Choose the jungle hideaway in downtown Ao Nang, or the seaside terrace
-          for sunset. Both serve the same beloved Thai table.
+        <p class="hero-copy mt-6 max-w-xl text-base font-light leading-relaxed text-white/90 sm:text-lg">
+          Delicious food, fresh ingredients, and a great atmosphere.
         </p>
         <a
           href="#branches"
-          class="mt-10 inline-flex items-center gap-2 border border-brand-gold bg-brand-gold px-8 py-3 text-xs uppercase tracking-[0.28em] text-brand-black transition hover:bg-white hover:text-brand-red"
+          class="hero-copy mt-10 inline-flex items-center gap-2 border border-brand-red bg-brand-red px-8 py-3.5 text-sm uppercase tracking-[0.28em] text-white transition hover:bg-white hover:text-brand-red"
         >
           Choose your branch
         </a>
+      </div>
+    </section>
+
+    <section
+      id="about"
+      class="relative bg-white px-6 py-16 sm:px-8 lg:py-24"
+    >
+      <div class="mx-auto max-w-3xl text-center">
+        <p
+          class="inline-block rounded-full border border-brand-red/20 bg-brand-red/5 px-5 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-brand-red sm:text-base"
+        >
+          We are open daily from 11am – 10.30pm
+        </p>
+        <h2
+          class="mt-5 font-serif text-3xl leading-snug text-brand-red sm:text-4xl lg:text-[2.75rem]"
+        >
+          KoDam Kitchen – The hidden gem for local Thai and seafood cuisine
+        </h2>
+        <p
+          class="mt-6 text-sm font-medium uppercase tracking-[0.28em] text-brand-black"
+        >
+          Local Favourites In Ao Nang
+        </p>
+        <div
+          class="mx-auto mt-5 h-px w-20 bg-gradient-to-r from-transparent via-brand-black/25 to-transparent"
+        ></div>
+        <div
+          class="mt-8 space-y-5 text-left text-base font-light leading-relaxed text-brand-mute sm:text-lg"
+        >
+          <p>
+            Hideaway in the back streets of downtown Ao Nang is a charming Thai
+            Local restaurant called Kodam Kitchen. There are several diners to
+            enjoy Thai food in Ao Nang, but sometimes it’s worth stepping off the
+            main strip to find this hidden gem.
+          </p>
+          <p>
+            Kodam Kitchen serves delicious, authentic Thai cuisine with an
+            ambience that cannot be beat. Enjoy dishes like the delicious Pad
+            Thai Goong (Traditional Thai Style Fried rice noodles) or Seafood
+            Jarn Ron (An arrays of Seafood combination Wok fried with Chili paste
+            oil and fragrant herbs served in hot pan). If you like curry, try
+            Massaman Gai with Thai Roti – This is highly recommended. Treat
+            yourself to a selection of fresh seafood such as baked mussels in a
+            hot pot with Thai basil or deep-fried garlic snapper.
+          </p>
+          <p>
+            Friendly staff will greet you with a smile with outdoor alfresco
+            style seating area. The surrounded area is lush, potted greenery that
+            makes you feel like you are right in the jungle. Despite the quiet,
+            relaxing mood, you are still close enough to the beach to enjoy a
+            moonlight stroll after you have had your fill of homemade and
+            delicious Thai desserts. Try the classic Mango Sticky rice or the
+            Kloud Buad Chee (Special Banana cooked in Fresh Coconut Milk).
+          </p>
+          <p>
+            The restaurant is located next to the best Massage shop, Massage
+            Corner. Plan a visit to have a relaxing massage and continue to
+            KoDam Kitchen to enjoy laid-back vibes of this great eatery.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="menu"
+      class="relative border-y border-brand-black/10 bg-[#fafafa] px-6 py-10 sm:px-8 lg:py-14"
+    >
+      <div class="mx-auto mb-10 max-w-3xl text-center">
+        <h2
+          lang="th"
+          class="font-thai text-4xl text-brand-red sm:text-5xl"
+        >
+          เมนูแนะนำ
+        </h2>
+        <p class="mt-2 font-serif text-2xl text-brand-black/80 sm:text-3xl">
+          Recommended Menu
+        </p>
+        <div
+          class="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-brand-black/30 to-transparent"
+        ></div>
+        <p class="mt-5 text-brand-mute">
+          Signature Thai and seafood favourites guests return for again and
+          again.
+        </p>
+      </div>
+
+      <div
+        class="mx-auto grid max-w-6xl grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <article>
+          <div class="aspect-[4/3] overflow-hidden bg-[#b40100]/10">
+            <img
+              src="images/gaeng-som-pla-kapong.jpg"
+              alt="แกงส้มปลากระพง — Sour Curry with Sea Bass"
+              class="h-full w-full scale-110 object-cover object-[42%_38%] transition duration-500 hover:scale-[1.15]"
+            />
+          </div>
+          <h3
+            lang="th"
+            class="mt-4 font-thai text-2xl font-semibold text-brand-red"
+          >
+            แกงส้มปลากระพง
+          </h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80">
+            Sour Curry with Sea Bass
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Spicy-tangy Southern Thai sour curry with tender sea bass and
+            bamboo shoots in a bright, herb-infused broth.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="images/pla-tod-boran.jpg"
+              alt="ปลาทอดโบราณ — Ancient Fried Fish"
+              class="h-full w-full object-cover object-center transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3
+            lang="th"
+            class="mt-4 font-thai text-2xl font-semibold text-brand-red"
+          >
+            ปลาทอดโบราณ
+          </h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80">
+            Ancient Fried Fish
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Crispy whole fried fish topped with lemongrass, shallots, chilies,
+            and fresh herbs in a zesty savory sauce.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="images/bai-liang-pad-kai.jpg"
+              alt="ใบเหลียงผัดไข่ — Stir-fried Malindjo Leaves with Egg"
+              class="h-full w-full object-cover object-center transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3
+            lang="th"
+            class="mt-4 font-thai text-2xl font-semibold text-brand-red"
+          >
+            ใบเหลียงผัดไข่
+          </h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80">
+            Stir-fried Malindjo Leaves with Egg
+          </p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Southern Thai favourite — glossy malindjo leaves stir-fried with
+            fresh egg and fragrant crispy garlic.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=900&q=80"
+              alt="Pad Thai Goong with prawns"
+              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3 class="mt-4 font-serif text-2xl text-brand-red">Pad Thai Goong</h3>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Traditional Thai fried rice noodles with plump prawns — a local
+            classic.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=900&q=80"
+              alt="Seafood Jarn Ron hot plate"
+              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3 class="mt-4 font-serif text-2xl text-brand-red">Seafood Jarn Ron</h3>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Mixed seafood wok-fried with chili paste oil and fragrant herbs,
+            served sizzling hot.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=900&q=80"
+              alt="Massaman Gai curry with Thai roti"
+              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3 class="mt-4 font-serif text-2xl text-brand-red">
+            Massaman Gai with Thai Roti
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Rich chicken Massaman curry paired with flaky Thai roti — highly
+            recommended.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=900&q=80"
+              alt="Baked mussels in hot pot with Thai basil"
+              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3 class="mt-4 font-serif text-2xl text-brand-red">
+            Baked Mussels Hot Pot
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Fresh mussels baked in a hot pot with fragrant Thai basil.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=900&q=80"
+              alt="Deep-fried garlic snapper"
+              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3 class="mt-4 font-serif text-2xl text-brand-red">
+            Deep-fried Garlic Snapper
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Crispy whole snapper finished with golden garlic — a seafood
+            favourite.
+          </p>
+        </article>
+
+        <article>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=900&q=80"
+              alt="Mango sticky rice dessert"
+              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+            />
+          </div>
+          <h3 class="mt-4 font-serif text-2xl text-brand-red">Mango Sticky Rice</h3>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
+            Classic homemade Thai dessert — sweet mango with coconut sticky
+            rice.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Atmosphere gallery: 2 rows (one per branch) + lightbox -->
+    <section
+      id="atmosphere"
+      class="relative bg-white px-6 py-10 sm:px-8 lg:py-14"
+    >
+      <div class="mx-auto mb-10 max-w-3xl text-center">
+        <h2
+          lang="th"
+          class="font-thai text-4xl text-brand-red sm:text-5xl"
+        >
+          บรรยากาศร้าน
+        </h2>
+        <p class="mt-2 font-serif text-2xl text-brand-black/80 sm:text-3xl">
+          Our Atmosphere
+        </p>
+        <div
+          class="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-brand-black/30 to-transparent"
+        ></div>
+        <p class="mt-5 text-brand-mute">
+          Two branches, two moods — jungle hideaway downtown, and seaside
+          dining by the water. Tap any photo to view larger.
+        </p>
+      </div>
+
+      <div class="mx-auto flex max-w-7xl flex-col gap-14">
+        <!-- Row 1: Branch 1 -->
+        <div>
+          <div class="mb-5 text-center sm:text-left">
+            <p class="text-xs uppercase tracking-[0.32em] text-brand-gold">
+              Branch 01 · Ao Nang Downtown
+            </p>
+            <h3 class="mt-2 font-serif text-2xl text-brand-red sm:text-3xl">
+              Lush Jungle Vibe
+            </h3>
+          </div>
+          <div class="grid grid-cols-12 gap-3 sm:gap-4">
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-8"
+              data-src="images/hero-kodam-kitchen.jpg"
+              data-alt="KoDam Kitchen Branch 1 evening dining under thatched roof"
+            >
+              <img
+                src="images/hero-kodam-kitchen.jpg"
+                alt="KoDam Kitchen Branch 1 evening dining under thatched roof"
+                class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[28rem]"
+              />
+            </button>
+            <div class="col-span-12 grid grid-cols-2 gap-3 sm:col-span-4 sm:grid-cols-1 sm:gap-4">
+              <button
+                type="button"
+                class="gallery-item group relative overflow-hidden"
+                data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80"
+                data-alt="Warm indoor seating at KoDam Kitchen Branch 1"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
+                  alt="Warm indoor seating at KoDam Kitchen Branch 1"
+                  class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
+                />
+              </button>
+              <button
+                type="button"
+                class="gallery-item group relative overflow-hidden"
+                data-src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80"
+                data-alt="Outdoor alfresco tables surrounded by greenery"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80"
+                  alt="Outdoor alfresco tables surrounded by greenery"
+                  class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
+                />
+              </button>
+            </div>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Evening restaurant lights and lively dining atmosphere"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=900&q=80"
+                alt="Evening restaurant lights and lively dining atmosphere"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Cozy table setting with warm ambient lighting"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80"
+                alt="Cozy table setting with warm ambient lighting"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-4"
+              data-src="https://images.unsplash.com/photo-1424847651672-bf20a4b2722a?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Tropical greenery around outdoor dining space"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1424847651672-bf20a4b2722a?auto=format&fit=crop&w=900&q=80"
+                alt="Tropical greenery around outdoor dining space"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-7"
+              data-src="https://images.unsplash.com/photo-1525610553991-2bede1a690e8?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Busy night dining under hanging lights"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1525610553991-2bede1a690e8?auto=format&fit=crop&w=900&q=80"
+                alt="Busy night dining under hanging lights"
+                class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-5"
+              data-src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Bar and lounge corner with soft night lighting"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=80"
+                alt="Bar and lounge corner with soft night lighting"
+                class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
+              />
+            </button>
+          </div>
+        </div>
+
+        <!-- Row 2: Branch 2 -->
+        <div>
+          <div class="mb-5 text-center sm:text-left">
+            <p class="text-xs uppercase tracking-[0.32em] text-brand-gold">
+              Branch 02 · Beachfront &amp; Seaside
+            </p>
+            <h3 class="mt-2 font-serif text-2xl text-brand-red sm:text-3xl">
+              Ocean View &amp; Sunset
+            </h3>
+          </div>
+          <div class="grid grid-cols-12 gap-3 sm:gap-4">
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-8"
+              data-src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
+              data-alt="Beachfront sunset near KoDam Kitchen Branch 2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80"
+                alt="Beachfront sunset near KoDam Kitchen Branch 2"
+                class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[28rem]"
+              />
+            </button>
+            <div class="col-span-12 grid grid-cols-2 gap-3 sm:col-span-4 sm:grid-cols-1 sm:gap-4">
+              <button
+                type="button"
+                class="gallery-item group relative overflow-hidden"
+                data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80"
+                data-alt="Seaside dining table at KoDam Kitchen Branch 2"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+                  alt="Seaside dining table at KoDam Kitchen Branch 2"
+                  class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
+                />
+              </button>
+              <button
+                type="button"
+                class="gallery-item group relative overflow-hidden"
+                data-src="https://images.unsplash.com/photo-1559339646-dadc021e7c0d?auto=format&fit=crop&w=1400&q=80"
+                data-alt="Open-air terrace with ocean breeze ambience"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1559339646-dadc021e7c0d?auto=format&fit=crop&w=900&q=80"
+                  alt="Open-air terrace with ocean breeze ambience"
+                  class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
+                />
+              </button>
+            </div>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Fresh seafood dishes by the seaside"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+                alt="Fresh seafood dishes by the seaside"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Golden hour light over the water"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=80"
+                alt="Golden hour light over the water"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-4"
+              data-src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Romantic seaside dining setup"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=900&q=80"
+                alt="Romantic seaside dining setup"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-7"
+              data-src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Friends dining outdoors near the coast"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=900&q=80"
+                alt="Friends dining outdoors near the coast"
+                class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-5"
+              data-src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1400&q=80"
+              data-alt="Coastal evening meal with warm lighting"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=900&q=80"
+                alt="Coastal evening meal with warm lighting"
+                class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -379,8 +911,107 @@
       </p>
     </section>
 
-    <footer class="border-t border-brand-black/10 bg-white px-6 py-8 text-center text-xs tracking-wide text-brand-mute">
+    <footer class="border-t border-brand-black bg-brand-black px-6 py-8 text-center text-xs tracking-wide text-white/70">
       © KoDam Kitchen · Ao Nang &amp; Ao Nam Mao, Krabi
     </footer>
+
+    <div
+      id="lightbox"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-brand-black/90 p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      aria-label="Image lightbox"
+    >
+      <button
+        type="button"
+        id="lightbox-close"
+        class="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20"
+        aria-label="Close lightbox"
+      >
+        ×
+      </button>
+      <button
+        type="button"
+        id="lightbox-prev"
+        class="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20 sm:left-6"
+        aria-label="Previous image"
+      >
+        ‹
+      </button>
+      <button
+        type="button"
+        id="lightbox-next"
+        class="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20 sm:right-6"
+        aria-label="Next image"
+      >
+        ›
+      </button>
+      <div
+        id="lightbox-panel"
+        class="max-h-[88vh] max-w-5xl scale-95 opacity-0 transition duration-300"
+      >
+        <img
+          id="lightbox-image"
+          src=""
+          alt=""
+          class="max-h-[80vh] w-auto max-w-full object-contain shadow-soft"
+        />
+        <p
+          id="lightbox-caption"
+          class="mt-4 text-center text-sm text-white/80"
+        ></p>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const items = Array.from(document.querySelectorAll(".gallery-item"));
+        const lightbox = document.getElementById("lightbox");
+        const image = document.getElementById("lightbox-image");
+        const caption = document.getElementById("lightbox-caption");
+        const btnClose = document.getElementById("lightbox-close");
+        const btnPrev = document.getElementById("lightbox-prev");
+        const btnNext = document.getElementById("lightbox-next");
+        let current = 0;
+
+        function openAt(index) {
+          current = (index + items.length) % items.length;
+          const item = items[current];
+          image.src = item.dataset.src;
+          image.alt = item.dataset.alt || "";
+          caption.textContent = item.dataset.alt || "";
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+          lightbox.classList.remove("is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          image.src = "";
+        }
+
+        items.forEach((item, index) => {
+          item.addEventListener("click", () => openAt(index));
+        });
+
+        btnClose.addEventListener("click", closeLightbox);
+        btnPrev.addEventListener("click", () => openAt(current - 1));
+        btnNext.addEventListener("click", () => openAt(current + 1));
+
+        lightbox.addEventListener("click", (event) => {
+          if (event.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (!lightbox.classList.contains("is-open")) return;
+          if (event.key === "Escape") closeLightbox();
+          if (event.key === "ArrowLeft") openAt(current - 1);
+          if (event.key === "ArrowRight") openAt(current + 1);
+        });
+      })();
+    </script>
   </body>
 </html>
