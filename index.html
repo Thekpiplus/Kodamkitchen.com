@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th" data-lang="th">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KoDam Kitchen | Ao Nang & Beachfront, Krabi</title>
+    <title>KoDam Kitchen | อ่าวนาง และริมทะเล กระบี่</title>
     <meta
       name="description"
-      content="Authentic Thai cuisine in Krabi. Visit KoDam Kitchen Branch 1 in downtown Ao Nang or Branch 2 on the beachfront at Ao Nam Mao."
+      content="อาหารไทยและซีฟู้ดรสดั้งเดิมที่กระบี่ แวะสาขา 1 อ่าวนางตัวเมือง หรือสาขา 2 ริมทะเลอ่าวน้ำเมา"
     />
     <link rel="icon" href="images/kodam-kitchen-logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="images/kodam-kitchen-logo.png" />
@@ -40,13 +40,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Kanit:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
       :lang(th),
       .font-thai {
         font-family: "Kanit", sans-serif;
+      }
+      html[data-lang="zh"] body,
+      html[lang="zh-CN"] body {
+        font-family: "Noto Sans SC", "Outfit", sans-serif;
+      }
+      .lang-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.2rem;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        border-radius: 9999px;
+        background: rgba(17, 17, 17, 0.35);
+        backdrop-filter: blur(8px);
+      }
+      .lang-btn {
+        border: 0;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        padding: 0.4rem 0.65rem;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      .lang-btn:hover {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .lang-btn.is-active {
+        background: #b40100;
+        color: #fff;
       }
       .hero-copy {
         text-shadow:
@@ -86,12 +120,19 @@
             class="h-20 w-20 rounded-md object-cover shadow-[0_6px_22px_rgba(0,0,0,0.4)] ring-1 ring-white/25 transition group-hover:ring-brand-gold sm:h-24 sm:w-24 lg:h-28 lg:w-28"
           />
         </a>
-        <nav class="hidden gap-8 text-sm tracking-wide text-white/90 sm:flex">
-          <a href="#menu" class="hover:text-brand-gold">Menu</a>
-          <a href="#atmosphere" class="hover:text-brand-gold">Atmosphere</a>
-          <a href="#branches" class="hover:text-brand-gold">Locations</a>
-          <a href="#hours" class="hover:text-brand-gold">Hours</a>
-        </nav>
+        <div class="flex items-center gap-4 sm:gap-6">
+          <nav class="hidden gap-6 text-sm tracking-wide text-white/90 md:flex lg:gap-8">
+            <a href="#menu" class="hover:text-brand-gold" data-i18n="nav_menu">เมนู</a>
+            <a href="#atmosphere" class="hover:text-brand-gold" data-i18n="nav_atmosphere">บรรยากาศ</a>
+            <a href="#branches" class="hover:text-brand-gold" data-i18n="nav_locations">สาขา</a>
+            <a href="#hours" class="hover:text-brand-gold" data-i18n="nav_hours">เวลาเปิด</a>
+          </nav>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" class="lang-btn is-active" data-lang="th" aria-pressed="true">ไทย</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中文</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -116,18 +157,14 @@
         <h1
           lang="th"
           class="hero-copy font-thai text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl"
-        >
-          อาหารอร่อย บรรยากาศดี
-        </h1>
-        <p class="hero-copy mt-6 max-w-xl text-base font-light leading-relaxed text-white/90 sm:text-lg">
-          Delicious food, fresh ingredients, and a great atmosphere.
-        </p>
+          data-i18n="hero_headline"
+        >อาหารอร่อย บรรยากาศดี</h1>
+        <p class="hero-copy mt-6 max-w-xl text-base font-light leading-relaxed text-white/90 sm:text-lg" data-i18n="hero_tagline">อาหารอร่อย วัตถุดิบสดใหม่ และบรรยากาศดี</p>
         <a
           href="#branches"
           class="hero-copy mt-10 inline-flex items-center gap-2 border border-brand-red bg-brand-red px-8 py-3.5 text-sm uppercase tracking-[0.28em] text-white transition hover:bg-white hover:text-brand-red"
-        >
-          Choose your branch
-        </a>
+          data-i18n="hero_cta"
+        >เลือกสาขาของคุณ</a>
       </div>
     </section>
 
@@ -138,55 +175,26 @@
       <div class="mx-auto max-w-3xl text-center">
         <p
           class="inline-block rounded-full border border-brand-red/20 bg-brand-red/5 px-5 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-brand-red sm:text-base"
-        >
-          We are open daily from 11am – 10.30pm
-        </p>
+          data-i18n="about_hours"
+        >เปิดบริการทุกวัน 11:00 – 22:30 น.</p>
         <h2
           class="mt-5 font-serif text-3xl leading-snug text-brand-red sm:text-4xl lg:text-[2.75rem]"
-        >
-          KoDam Kitchen – The hidden gem for local Thai and seafood cuisine
-        </h2>
+          data-i18n="about_title"
+        >KoDam Kitchen – ร้านลับที่ต้องลอง อาหารไทยพื้นถิ่นและซีฟู้ดสดใหม่</h2>
         <p
           class="mt-6 text-sm font-medium uppercase tracking-[0.28em] text-brand-black"
-        >
-          Local Favourites In Ao Nang
-        </p>
+          data-i18n="about_subtitle"
+        >เมนูโปรดในอ่าวนาง</p>
         <div
           class="mx-auto mt-5 h-px w-20 bg-gradient-to-r from-transparent via-brand-black/25 to-transparent"
         ></div>
         <div
           class="mt-8 space-y-5 text-left text-base font-light leading-relaxed text-brand-mute sm:text-lg"
         >
-          <p>
-            Hideaway in the back streets of downtown Ao Nang is a charming Thai
-            Local restaurant called Kodam Kitchen. There are several diners to
-            enjoy Thai food in Ao Nang, but sometimes it’s worth stepping off the
-            main strip to find this hidden gem.
-          </p>
-          <p>
-            Kodam Kitchen serves delicious, authentic Thai cuisine with an
-            ambience that cannot be beat. Enjoy dishes like the delicious Pad
-            Thai Goong (Traditional Thai Style Fried rice noodles) or Seafood
-            Jarn Ron (An arrays of Seafood combination Wok fried with Chili paste
-            oil and fragrant herbs served in hot pan). If you like curry, try
-            Massaman Gai with Thai Roti – This is highly recommended. Treat
-            yourself to a selection of fresh seafood such as baked mussels in a
-            hot pot with Thai basil or deep-fried garlic snapper.
-          </p>
-          <p>
-            Friendly staff will greet you with a smile with outdoor alfresco
-            style seating area. The surrounded area is lush, potted greenery that
-            makes you feel like you are right in the jungle. Despite the quiet,
-            relaxing mood, you are still close enough to the beach to enjoy a
-            moonlight stroll after you have had your fill of homemade and
-            delicious Thai desserts. Try the classic Mango Sticky rice or the
-            Kloud Buad Chee (Special Banana cooked in Fresh Coconut Milk).
-          </p>
-          <p>
-            The restaurant is located next to the best Massage shop, Massage
-            Corner. Plan a visit to have a relaxing massage and continue to
-            KoDam Kitchen to enjoy laid-back vibes of this great eatery.
-          </p>
+          <p data-i18n="about_p1">ซ่อนตัวอยู่ในซอยหลังเมืองอ่าวนาง คือร้านอาหารไทยท้องถิ่นแสนอบอุ่นอย่าง Kodam Kitchen ในอ่าวนางมีร้านอาหารไทยหลายแห่ง แต่บางครั้งการออกจากถนนหลักเพื่อค้นหาร้านลับอย่างนี้ก็คุ้มค่า</p>
+          <p data-i18n="about_p2">Kodam Kitchen เสิร์ฟอาหารไทยรสดั้งเดิมในบรรยากาศที่อบอุ่น ลองเมนูอย่างผัดไทยกุ้ง ซีฟู้ดจานร้อน หรือมัสมั่นไก่คู่โรตีไทยที่แนะนำเป็นพิเศษ รวมถึงซีฟู้ดสดอย่างหอยแมลงภู่หม้อไฟใบโหระพา และปลากะพงทอดกระเทียม</p>
+          <p data-i18n="about_p3">พนักงานยิ้มแย้มต้อนรับ พร้อมโซนนั่งกลางแจ้งท่ามกลางต้นไม้เขียวขจีให้รู้สึกเหมือนอยู่ในป่า แม้จะเงียบสงบ แต่ยังใกล้ชายหาดพอสำหรับเดินเล่นหลังอาหาร และปิดท้ายด้วยขนมหวานอย่างข้าวเหนียวมะม่วง หรือกล้วยบวดชี</p>
+          <p data-i18n="about_p4">ร้านตั้งอยู่ถัดจาก Massage Corner ร้านนวดชื่อดัง วางแผนมาผ่อนคลายด้วยนวดแล้วแวะกินที่ KoDam Kitchen เพื่อสัมผัสบรรยากาศสบายๆ ของร้านได้อย่างลงตัว</p>
         </div>
       </div>
     </section>
@@ -199,19 +207,13 @@
         <h2
           lang="th"
           class="font-thai text-4xl text-brand-red sm:text-5xl"
-        >
-          เมนูแนะนำ
-        </h2>
-        <p class="mt-2 font-serif text-2xl text-brand-black/80 sm:text-3xl">
-          Recommended Menu
-        </p>
+          data-i18n="menu_title"
+        >เมนูแนะนำ</h2>
+        <p class="mt-2 font-serif text-2xl text-brand-black/80 sm:text-3xl" data-i18n="menu_subtitle">เมนูแนะนำจากทางร้าน</p>
         <div
           class="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-brand-black/30 to-transparent"
         ></div>
-        <p class="mt-5 text-brand-mute">
-          Signature Thai and seafood favourites guests return for again and
-          again.
-        </p>
+        <p class="mt-5 text-brand-mute" data-i18n="menu_intro">เมนูซิกเนเจอร์อาหารไทยและซีฟู้ดที่ลูกค้ากลับมากินซ้ำแล้วซ้ำอีก</p>
       </div>
 
       <div
@@ -228,16 +230,10 @@
           <h3
             lang="th"
             class="mt-4 font-thai text-2xl font-semibold text-brand-red"
-          >
-            แกงส้มปลากระพง
-          </h3>
-          <p class="mt-1 font-serif text-lg text-brand-black/80">
-            Sour Curry with Sea Bass
-          </p>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Spicy-tangy Southern Thai sour curry with tender sea bass and
-            bamboo shoots in a bright, herb-infused broth.
-          </p>
+            data-i18n="dish1_name"
+          >แกงส้มปลากระพง</h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80" data-i18n="dish1_en">Sour Curry with Sea Bass</p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute" data-i18n="dish1_desc">แกงส้มใต้รสจัดจ้านเปรี้ยวเผ็ด ใส่ปลากระพงนุ่มและหน่อไม้ในน้ำแกงหอมเครื่องเทศ</p>
         </article>
 
         <article>
@@ -251,16 +247,10 @@
           <h3
             lang="th"
             class="mt-4 font-thai text-2xl font-semibold text-brand-red"
-          >
-            ปลาทอดโบราณ
-          </h3>
-          <p class="mt-1 font-serif text-lg text-brand-black/80">
-            Ancient Fried Fish
-          </p>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Crispy whole fried fish topped with lemongrass, shallots, chilies,
-            and fresh herbs in a zesty savory sauce.
-          </p>
+            data-i18n="dish2_name"
+          >ปลาทอดโบราณ</h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80" data-i18n="dish2_en">Ancient Fried Fish</p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute" data-i18n="dish2_desc">ปลาทอดทั้งตัวกรอบนอกนุ่มใน โรยตะไคร้ หอมแดง พริก และสมุนไพรสด พร้อมน้ำราดรสจัดจ้าน</p>
         </article>
 
         <article>
@@ -274,111 +264,61 @@
           <h3
             lang="th"
             class="mt-4 font-thai text-2xl font-semibold text-brand-red"
-          >
-            ใบเหลียงผัดไข่
-          </h3>
-          <p class="mt-1 font-serif text-lg text-brand-black/80">
-            Stir-fried Malindjo Leaves with Egg
-          </p>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Southern Thai favourite — glossy malindjo leaves stir-fried with
-            fresh egg and fragrant crispy garlic.
-          </p>
+            data-i18n="dish3_name"
+          >ใบเหลียงผัดไข่</h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80" data-i18n="dish3_en">Stir-fried Malindjo Leaves with Egg</p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute" data-i18n="dish3_desc">เมนูใต้ขึ้นชื่อ — ใบเหลียงผัดกับไข่ให้เงางาม หอมกระเทียมเจียวกรอบ</p>
         </article>
 
         <article>
           <div class="aspect-[4/3] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=900&q=80"
-              alt="Pad Thai Goong with prawns"
-              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+              src="images/khao-pad-sapparod.jpg"
+              alt="ข้าวผัดสับปะรด — Pineapple Fried Rice"
+              class="h-full w-full object-cover object-center transition duration-500 hover:scale-105"
             />
           </div>
-          <h3 class="mt-4 font-serif text-2xl text-brand-red">Pad Thai Goong</h3>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Traditional Thai fried rice noodles with plump prawns — a local
-            classic.
-          </p>
+          <h3
+            lang="th"
+            class="mt-4 font-thai text-2xl font-semibold text-brand-red"
+            data-i18n="dish4_name"
+          >ข้าวผัดสับปะรด</h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80" data-i18n="dish4_en">Pineapple Fried Rice</p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute" data-i18n="dish4_desc">ข้าวผัดขมิ้นหอมกรุ่น ใส่กุ้งตัวโต กุนเชียง และเม็ดมะม่วงหิมพานต์ เสิร์ฟในลูกสับปะรดสด</p>
         </article>
 
         <article>
           <div class="aspect-[4/3] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?auto=format&fit=crop&w=900&q=80"
-              alt="Seafood Jarn Ron hot plate"
-              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+              src="images/hor-mok-talay-maprao.jpg"
+              alt="ห่อหมกทะเลมะพร้าว — Steamed Seafood Curry in Young Coconut"
+              class="h-full w-full object-cover object-center transition duration-500 hover:scale-105"
             />
           </div>
-          <h3 class="mt-4 font-serif text-2xl text-brand-red">Seafood Jarn Ron</h3>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Mixed seafood wok-fried with chili paste oil and fragrant herbs,
-            served sizzling hot.
-          </p>
+          <h3
+            lang="th"
+            class="mt-4 font-thai text-2xl font-semibold text-brand-red"
+            data-i18n="dish5_name"
+          >ห่อหมกทะเลมะพร้าว</h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80" data-i18n="dish5_en">Steamed Seafood Curry in Young Coconut</p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute" data-i18n="dish5_desc">ห่อหมกทะเลเข้มข้น นึ่งในลูกมะพร้าวอ่อน หอมใบมะกรูดและกะทิสด</p>
         </article>
 
         <article>
           <div class="aspect-[4/3] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=900&q=80"
-              alt="Massaman Gai curry with Thai roti"
-              class="h-full w-full object-cover transition duration-500 hover:scale-105"
+              src="images/nam-prik-kapi.jpg"
+              alt="น้ำพริกกะปิ — Shrimp Paste Chili Dip"
+              class="h-full w-full object-cover object-center transition duration-500 hover:scale-105"
             />
           </div>
-          <h3 class="mt-4 font-serif text-2xl text-brand-red">
-            Massaman Gai with Thai Roti
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Rich chicken Massaman curry paired with flaky Thai roti — highly
-            recommended.
-          </p>
-        </article>
-
-        <article>
-          <div class="aspect-[4/3] overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=900&q=80"
-              alt="Baked mussels in hot pot with Thai basil"
-              class="h-full w-full object-cover transition duration-500 hover:scale-105"
-            />
-          </div>
-          <h3 class="mt-4 font-serif text-2xl text-brand-red">
-            Baked Mussels Hot Pot
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Fresh mussels baked in a hot pot with fragrant Thai basil.
-          </p>
-        </article>
-
-        <article>
-          <div class="aspect-[4/3] overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=900&q=80"
-              alt="Deep-fried garlic snapper"
-              class="h-full w-full object-cover transition duration-500 hover:scale-105"
-            />
-          </div>
-          <h3 class="mt-4 font-serif text-2xl text-brand-red">
-            Deep-fried Garlic Snapper
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Crispy whole snapper finished with golden garlic — a seafood
-            favourite.
-          </p>
-        </article>
-
-        <article>
-          <div class="aspect-[4/3] overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=900&q=80"
-              alt="Mango sticky rice dessert"
-              class="h-full w-full object-cover transition duration-500 hover:scale-105"
-            />
-          </div>
-          <h3 class="mt-4 font-serif text-2xl text-brand-red">Mango Sticky Rice</h3>
-          <p class="mt-2 text-sm leading-relaxed text-brand-mute">
-            Classic homemade Thai dessert — sweet mango with coconut sticky
-            rice.
-          </p>
+          <h3
+            lang="th"
+            class="mt-4 font-thai text-2xl font-semibold text-brand-red"
+            data-i18n="dish6_name"
+          >น้ำพริกกะปิ</h3>
+          <p class="mt-1 font-serif text-lg text-brand-black/80" data-i18n="dish6_en">Shrimp Paste Chili Dip</p>
+          <p class="mt-2 text-sm leading-relaxed text-brand-mute" data-i18n="dish6_desc">น้ำพริกกะปิรสจัดจ้าน คู่ไข่ทอดชะอม ผักชุบแป้งทอด และแตงกวาสด</p>
         </article>
       </div>
     </section>
@@ -392,31 +332,21 @@
         <h2
           lang="th"
           class="font-thai text-4xl text-brand-red sm:text-5xl"
-        >
-          บรรยากาศร้าน
-        </h2>
-        <p class="mt-2 font-serif text-2xl text-brand-black/80 sm:text-3xl">
-          Our Atmosphere
-        </p>
+          data-i18n="atm_title"
+        >บรรยากาศร้าน</h2>
+        <p class="mt-2 font-serif text-2xl text-brand-black/80 sm:text-3xl" data-i18n="atm_subtitle">บรรยากาศของเรา</p>
         <div
           class="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-brand-black/30 to-transparent"
         ></div>
-        <p class="mt-5 text-brand-mute">
-          Two branches, two moods — jungle hideaway downtown, and seaside
-          dining by the water. Tap any photo to view larger.
-        </p>
+        <p class="mt-5 text-brand-mute" data-i18n="atm_intro">สองสาขา สองบรรยากาศ — มุมลับกลางเมือง และวิวทะเลริมน้ำ กดรูปเพื่อดูภาพขยาย</p>
       </div>
 
       <div class="mx-auto flex max-w-7xl flex-col gap-14">
         <!-- Row 1: Branch 1 -->
         <div>
           <div class="mb-5 text-center sm:text-left">
-            <p class="text-xs uppercase tracking-[0.32em] text-brand-gold">
-              Branch 01 · Ao Nang Downtown
-            </p>
-            <h3 class="mt-2 font-serif text-2xl text-brand-red sm:text-3xl">
-              Lush Jungle Vibe
-            </h3>
+            <p class="text-xs uppercase tracking-[0.32em] text-brand-gold" data-i18n="atm_b1_label">สาขา 01 · อ่าวนางตัวเมือง</p>
+            <h3 class="mt-2 font-serif text-2xl text-brand-red sm:text-3xl" data-i18n="atm_b1_title">Kodam Kitchen สาขา 1</h3>
           </div>
           <div class="grid grid-cols-12 gap-3 sm:gap-4">
             <button
@@ -435,24 +365,24 @@
               <button
                 type="button"
                 class="gallery-item group relative overflow-hidden"
-                data-src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80"
-                data-alt="Warm indoor seating at KoDam Kitchen Branch 1"
+                data-src="images/branch1/branch1-10.jpg"
+                data-alt="KoDam Kitchen Branch 1 staff welcoming guests"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
-                  alt="Warm indoor seating at KoDam Kitchen Branch 1"
+                  src="images/branch1/branch1-10.jpg"
+                  alt="KoDam Kitchen Branch 1 staff welcoming guests"
                   class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
                 />
               </button>
               <button
                 type="button"
                 class="gallery-item group relative overflow-hidden"
-                data-src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1400&q=80"
-                data-alt="Outdoor alfresco tables surrounded by greenery"
+                data-src="images/branch1/branch1-04.jpg"
+                data-alt="Semi-outdoor dining at KoDam Kitchen Branch 1"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80"
-                  alt="Outdoor alfresco tables surrounded by greenery"
+                  src="images/branch1/branch1-04.jpg"
+                  alt="Semi-outdoor dining at KoDam Kitchen Branch 1"
                   class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
                 />
               </button>
@@ -460,61 +390,121 @@
             <button
               type="button"
               class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
-              data-src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Evening restaurant lights and lively dining atmosphere"
+              data-src="images/branch1/branch1-02.jpg"
+              data-alt="KoDam Kitchen Branch 1 entrance with traditional cart"
             >
               <img
-                src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=900&q=80"
-                alt="Evening restaurant lights and lively dining atmosphere"
+                src="images/branch1/branch1-02.jpg"
+                alt="KoDam Kitchen Branch 1 entrance with traditional cart"
                 class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
-              data-src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Cozy table setting with warm ambient lighting"
+              data-src="images/branch1/branch1-01.jpg"
+              data-alt="Exterior of KoDam Kitchen Branch 1 Ao Nang"
             >
               <img
-                src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=80"
-                alt="Cozy table setting with warm ambient lighting"
+                src="images/branch1/branch1-01.jpg"
+                alt="Exterior of KoDam Kitchen Branch 1 Ao Nang"
                 class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-4"
-              data-src="https://images.unsplash.com/photo-1424847651672-bf20a4b2722a?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Tropical greenery around outdoor dining space"
+              data-src="images/branch1/branch1-05.jpg"
+              data-alt="Outdoor patio seating at Branch 1"
             >
               <img
-                src="https://images.unsplash.com/photo-1424847651672-bf20a4b2722a?auto=format&fit=crop&w=900&q=80"
-                alt="Tropical greenery around outdoor dining space"
+                src="images/branch1/branch1-05.jpg"
+                alt="Outdoor patio seating at Branch 1"
                 class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-7"
-              data-src="https://images.unsplash.com/photo-1525610553991-2bede1a690e8?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Busy night dining under hanging lights"
+              data-src="images/branch1/branch1-11.jpg"
+              data-alt="Busy thatched-roof dining hall at Branch 1"
             >
               <img
-                src="https://images.unsplash.com/photo-1525610553991-2bede1a690e8?auto=format&fit=crop&w=900&q=80"
-                alt="Busy night dining under hanging lights"
+                src="images/branch1/branch1-11.jpg"
+                alt="Busy thatched-roof dining hall at Branch 1"
                 class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-5"
-              data-src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Bar and lounge corner with soft night lighting"
+              data-src="images/branch1/branch1-06.jpg"
+              data-alt="Spacious open dining area at KoDam Kitchen Branch 1"
             >
               <img
-                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=900&q=80"
-                alt="Bar and lounge corner with soft night lighting"
+                src="images/branch1/branch1-06.jpg"
+                alt="Spacious open dining area at KoDam Kitchen Branch 1"
                 class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="images/branch1/branch1-03.jpg"
+              data-alt="Lively open-air dining at Branch 1"
+            >
+              <img
+                src="images/branch1/branch1-03.jpg"
+                alt="Lively open-air dining at Branch 1"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="images/branch1/branch1-09.jpg"
+              data-alt="Friendly service at KoDam Kitchen Branch 1"
+            >
+              <img
+                src="images/branch1/branch1-09.jpg"
+                alt="Friendly service at KoDam Kitchen Branch 1"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-4"
+              data-src="images/branch1/branch1-12.jpg"
+              data-alt="Guest dining experience at Branch 1 Ao Nang"
+            >
+              <img
+                src="images/branch1/branch1-12.jpg"
+                alt="Guest dining experience at Branch 1 Ao Nang"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-6"
+              data-src="images/branch1/branch1-08.jpg"
+              data-alt="Kitchen service counter at KoDam Kitchen Branch 1"
+            >
+              <img
+                src="images/branch1/branch1-08.jpg"
+                alt="Kitchen service counter at KoDam Kitchen Branch 1"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-6"
+              data-src="images/branch1/branch1-07.jpg"
+              data-alt="Kitchen pass and fresh dishes at Branch 1"
+            >
+              <img
+                src="images/branch1/branch1-07.jpg"
+                alt="Kitchen pass and fresh dishes at Branch 1"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
           </div>
@@ -523,23 +513,19 @@
         <!-- Row 2: Branch 2 -->
         <div>
           <div class="mb-5 text-center sm:text-left">
-            <p class="text-xs uppercase tracking-[0.32em] text-brand-gold">
-              Branch 02 · Beachfront &amp; Seaside
-            </p>
-            <h3 class="mt-2 font-serif text-2xl text-brand-red sm:text-3xl">
-              Ocean View &amp; Sunset
-            </h3>
+            <p class="text-xs uppercase tracking-[0.32em] text-brand-gold" data-i18n="atm_b2_label">สาขา 02 · ริมทะเล</p>
+            <h3 class="mt-2 font-serif text-2xl text-brand-red sm:text-3xl" data-i18n="atm_b2_title">Kodam Kitchen สาขา 2 Oceanview</h3>
           </div>
           <div class="grid grid-cols-12 gap-3 sm:gap-4">
             <button
               type="button"
               class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-8"
-              data-src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
-              data-alt="Beachfront sunset near KoDam Kitchen Branch 2"
+              data-src="images/branch2/branch2-06.jpg"
+              data-alt="Ocean view deck at KoDam Kitchen Branch 2 with limestone mountains"
             >
               <img
-                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80"
-                alt="Beachfront sunset near KoDam Kitchen Branch 2"
+                src="images/branch2/branch2-06.jpg"
+                alt="Ocean view deck at KoDam Kitchen Branch 2 with limestone mountains"
                 class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[28rem]"
               />
             </button>
@@ -547,24 +533,24 @@
               <button
                 type="button"
                 class="gallery-item group relative overflow-hidden"
-                data-src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80"
-                data-alt="Seaside dining table at KoDam Kitchen Branch 2"
+                data-src="images/branch2/branch2-09.jpg"
+                data-alt="KoDam Kitchen Branch 2 Oceanview sign"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
-                  alt="Seaside dining table at KoDam Kitchen Branch 2"
+                  src="images/branch2/branch2-09.jpg"
+                  alt="KoDam Kitchen Branch 2 Oceanview sign"
                   class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
                 />
               </button>
               <button
                 type="button"
                 class="gallery-item group relative overflow-hidden"
-                data-src="https://images.unsplash.com/photo-1559339646-dadc021e7c0d?auto=format&fit=crop&w=1400&q=80"
-                data-alt="Open-air terrace with ocean breeze ambience"
+                data-src="images/branch2/branch2-08.jpg"
+                data-alt="Outdoor seating and Oceanview signage at Branch 2"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1559339646-dadc021e7c0d?auto=format&fit=crop&w=900&q=80"
-                  alt="Open-air terrace with ocean breeze ambience"
+                  src="images/branch2/branch2-08.jpg"
+                  alt="Outdoor seating and Oceanview signage at Branch 2"
                   class="h-40 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[13.5rem]"
                 />
               </button>
@@ -572,61 +558,145 @@
             <button
               type="button"
               class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
-              data-src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Fresh seafood dishes by the seaside"
+              data-src="images/branch2/branch2-01.jpg"
+              data-alt="Beachfront tables overlooking the bay at Branch 2"
             >
               <img
-                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
-                alt="Fresh seafood dishes by the seaside"
+                src="images/branch2/branch2-01.jpg"
+                alt="Beachfront tables overlooking the bay at Branch 2"
                 class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
-              data-src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Golden hour light over the water"
+              data-src="images/branch2/branch2-03.jpg"
+              data-alt="Shaded deck seating with sea view at Branch 2"
             >
               <img
-                src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=80"
-                alt="Golden hour light over the water"
+                src="images/branch2/branch2-03.jpg"
+                alt="Shaded deck seating with sea view at Branch 2"
                 class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-4"
-              data-src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Romantic seaside dining setup"
+              data-src="images/branch2/branch2-07.jpg"
+              data-alt="Dining tables facing the ocean and mountain at Branch 2"
             >
               <img
-                src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=900&q=80"
-                alt="Romantic seaside dining setup"
+                src="images/branch2/branch2-07.jpg"
+                alt="Dining tables facing the ocean and mountain at Branch 2"
                 class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-7"
-              data-src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Friends dining outdoors near the coast"
+              data-src="images/branch2/branch2-04.jpg"
+              data-alt="Thatched-roof dining hall at KoDam Kitchen Oceanview"
             >
               <img
-                src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=900&q=80"
-                alt="Friends dining outdoors near the coast"
+                src="images/branch2/branch2-04.jpg"
+                alt="Thatched-roof dining hall at KoDam Kitchen Oceanview"
                 class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
               />
             </button>
             <button
               type="button"
               class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-5"
-              data-src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1400&q=80"
-              data-alt="Coastal evening meal with warm lighting"
+              data-src="images/branch2/branch2-10.jpg"
+              data-alt="Covered terrace looking out to the island and sea"
             >
               <img
-                src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=900&q=80"
-                alt="Coastal evening meal with warm lighting"
+                src="images/branch2/branch2-10.jpg"
+                alt="Covered terrace looking out to the island and sea"
                 class="h-48 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-56"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-6"
+              data-src="images/branch2/branch2-11.jpg"
+              data-alt="Seaside table set for dining at Branch 2 Oceanview"
+            >
+              <img
+                src="images/branch2/branch2-11.jpg"
+                alt="Seaside table set for dining at Branch 2 Oceanview"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-6"
+              data-src="images/branch2/branch2-02.jpg"
+              data-alt="KoDam Kitchen menu at Branch 2 Oceanview"
+            >
+              <img
+                src="images/branch2/branch2-02.jpg"
+                alt="KoDam Kitchen menu at Branch 2 Oceanview"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-7"
+              data-src="images/branch2/branch2-14.jpg"
+              data-alt="Turquoise ocean view from shaded deck at Branch 2"
+            >
+              <img
+                src="images/branch2/branch2-14.jpg"
+                alt="Turquoise ocean view from shaded deck at Branch 2"
+                class="h-52 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-64"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-5"
+              data-src="images/branch2/branch2-17.jpg"
+              data-alt="Sunset dining on the ocean deck at Branch 2"
+            >
+              <img
+                src="images/branch2/branch2-17.jpg"
+                alt="Sunset dining on the ocean deck at Branch 2"
+                class="h-52 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-64"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="images/branch2/branch2-15.jpg"
+              data-alt="High-angle sea view from Branch 2 dining deck"
+            >
+              <img
+                src="images/branch2/branch2-15.jpg"
+                alt="High-angle sea view from Branch 2 dining deck"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-6 overflow-hidden sm:col-span-4"
+              data-src="images/branch2/branch2-16.jpg"
+              data-alt="Open-air tables by the water at Branch 2 Oceanview"
+            >
+              <img
+                src="images/branch2/branch2-16.jpg"
+                alt="Open-air tables by the water at Branch 2 Oceanview"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
+              />
+            </button>
+            <button
+              type="button"
+              class="gallery-item group relative col-span-12 overflow-hidden sm:col-span-4"
+              data-src="images/branch2/branch2-18.jpg"
+              data-alt="Panoramic ocean and mountain view from Branch 2"
+            >
+              <img
+                src="images/branch2/branch2-18.jpg"
+                alt="Panoramic ocean and mountain view from Branch 2"
+                class="h-44 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-52"
               />
             </button>
           </div>
@@ -637,19 +707,13 @@
     <!-- Branch selector: 2 columns desktop, 1 column mobile -->
     <section id="branches" class="relative bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div class="mx-auto mb-14 max-w-3xl text-center">
-        <p class="text-xs uppercase tracking-[0.45em] text-brand-gold">
-          Our Locations
-        </p>
+        <p class="text-xs uppercase tracking-[0.45em] text-brand-gold" data-i18n="loc_label">สถานที่ของเรา</p>
         <h2
           class="mt-3 font-serif text-4xl text-brand-red sm:text-5xl"
-        >
-          Visit KoDam Kitchen
-        </h2>
+          data-i18n="loc_title"
+        >แวะมาที่ KoDam Kitchen</h2>
         <div class="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-brand-black/30 to-transparent"></div>
-        <p class="mt-5 text-brand-mute">
-          Two distinct atmospheres — clearly separated so you can pick the
-          experience that suits your evening.
-        </p>
+        <p class="mt-5 text-brand-mute" data-i18n="loc_intro">สองบรรยากาศที่แตกต่างชัดเจน — เลือกประสบการณ์ที่เหมาะกับค่ำคืนของคุณ</p>
       </div>
 
       <div
@@ -661,8 +725,8 @@
         >
           <div class="relative h-52 overflow-hidden sm:h-64">
             <img
-              src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80"
-              alt="Lush jungle greenery around KoDam Kitchen Branch 1"
+              src="images/branch1/branch1-10.jpg"
+              alt="KoDam Kitchen Branch 1 staff and brand sign"
               class="h-full w-full object-cover"
             />
             <div
@@ -678,22 +742,17 @@
           <div class="flex flex-1 flex-col p-6 sm:p-8 lg:px-0 lg:pt-8">
             <p
               class="text-[11px] uppercase tracking-[0.32em] text-brand-gold"
-            >
-              Downtown Ao Nang
-            </p>
+              data-i18n="b1_label"
+            >อ่าวนางตัวเมือง</p>
             <h3
               class="mt-2 font-serif text-3xl leading-snug text-brand-red sm:text-[2.1rem]"
             >
-              KoDam Kitchen Branch 1
-              <span class="block text-2xl italic text-brand-black/80"
+              <span data-i18n="b1_title">KoDam Kitchen สาขา 1</span>
+              <span class="block text-2xl italic text-brand-black/80" data-i18n="b1_sub"
                 >(Ao Nang Downtown)</span
               >
             </h3>
-            <p class="mt-4 text-sm leading-relaxed text-brand-mute">
-              A hidden gem on Khlong Hang Road — close to the market, wrapped in
-              greenery, and favoured by travellers discovering Ao Nang beyond
-              the beach strip.
-            </p>
+            <p class="mt-4 text-sm leading-relaxed text-brand-mute" data-i18n="b1_desc">ร้านลับบนถนนคลองแห้ง ใกล้ตลาด แวดล้อมด้วยต้นไม้เขียว และเป็นที่นิยมของนักท่องเที่ยวที่อยากค้นหาอ่าวนางนอกชายหาด</p>
 
             <ul class="mt-6 space-y-3">
               <li
@@ -708,8 +767,8 @@
                   </svg>
                 </span>
                 <span>
-                  <strong class="font-medium text-brand-red">No Parking Available</strong>
-                  <span class="block text-brand-mute">Arrive by tuk-tuk, Grab, or on foot from downtown.</span>
+                  <strong class="font-medium text-brand-red" data-i18n="b1_f1">ไม่มีที่จอดรถ</strong>
+                  <span class="block text-brand-mute" data-i18n="b1_f1d">แนะนำมาด้วยตุ๊กตุ๊ก Grab หรือเดินจากตัวเมือง</span>
                 </span>
               </li>
               <li
@@ -725,8 +784,8 @@
                   </svg>
                 </span>
                 <span>
-                  <strong class="font-medium text-brand-red">Popular for International Tourists</strong>
-                  <span class="block text-brand-mute">A well-known stop for authentic Thai at a local price.</span>
+                  <strong class="font-medium text-brand-red" data-i18n="b1_f2">ยอดนิยมในหมู่นักท่องเที่ยว</strong>
+                  <span class="block text-brand-mute" data-i18n="b1_f2d">จุดแวะชิมอาหารไทยแท้ในราคาย่อมเยา</span>
                 </span>
               </li>
               <li class="flex items-start gap-3 text-sm text-brand-ink">
@@ -739,8 +798,8 @@
                   </svg>
                 </span>
                 <span>
-                  <strong class="font-medium text-brand-red">Lush Jungle Vibe</strong>
-                  <span class="block text-brand-mute">Alfresco seating among potted greenery and quiet lanes.</span>
+                  <strong class="font-medium text-brand-red" data-i18n="b1_f3">บรรยากาศป่าเขียวชอุ่ม</strong>
+                  <span class="block text-brand-mute" data-i18n="b1_f3d">นั่งกลางแจ้งท่ามกลางต้นไม้และซอยเงียบสงบ</span>
                 </span>
               </li>
             </ul>
@@ -754,15 +813,14 @@
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
-              Chat on WhatsApp (Branch 1)
+              <span data-i18n="b1_wa">แชท WhatsApp (สาขา 1)</span>
             </a>
 
             <div class="mt-8 overflow-hidden rounded-xl border border-brand-black/10">
               <p
                 class="bg-brand-red px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-brand-gold"
-              >
-                Map · Branch 1 · Khlong Hang Rd, Ao Nang
-              </p>
+                data-i18n="b1_map"
+              >แผนที่ · สาขา 1 · ถนนคลองแห้ง อ่าวนาง</p>
               <iframe
                 title="Google Map of KoDam Kitchen Branch 1, Ao Nang Downtown"
                 class="h-64 w-full sm:h-72"
@@ -780,8 +838,8 @@
         >
           <div class="relative h-52 overflow-hidden sm:h-64">
             <img
-              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80"
-              alt="Beachfront sunset at KoDam Kitchen Branch 2"
+              src="images/branch2/branch2-08.jpg"
+              alt="KoDam Kitchen Branch 2 Oceanview outdoor seating"
               class="h-full w-full object-cover"
             />
             <div
@@ -797,21 +855,17 @@
           <div class="flex flex-1 flex-col p-6 sm:p-8 lg:px-0 lg:pt-8">
             <p
               class="text-[11px] uppercase tracking-[0.32em] text-brand-gold"
-            >
-              Ao Nam Mao · Seaside
-            </p>
+              data-i18n="b2_label"
+            >อ่าวน้ำเมา · ริมทะเล</p>
             <h3
               class="mt-2 font-serif text-3xl leading-snug text-brand-red sm:text-[2.1rem]"
             >
-              KoDam Kitchen Branch 2
-              <span class="block text-2xl italic text-brand-black/80"
+              <span data-i18n="b2_title">KoDam Kitchen สาขา 2</span>
+              <span class="block text-2xl italic text-brand-black/80" data-i18n="b2_sub"
                 >(Beachfront &amp; Seaside)</span
               >
             </h3>
-            <p class="mt-4 text-sm leading-relaxed text-brand-mute">
-              Oceanview dining on the way to the Railay pier — sea breeze, open
-              terrace, and a slower, more romantic evening by the water.
-            </p>
+            <p class="mt-4 text-sm leading-relaxed text-brand-mute" data-i18n="b2_desc">รับประทานอาหารวิวทะเล ระหว่างทางไปท่าเรือไร่เลย์ — ลมทะเล ระเบียงเปิด และบรรยากาศโรแมนติกยามเย็น</p>
 
             <ul class="mt-6 space-y-3">
               <li
@@ -826,8 +880,8 @@
                   </svg>
                 </span>
                 <span>
-                  <strong class="font-medium text-brand-red">Beachfront View</strong>
-                  <span class="block text-brand-mute">Open-air tables looking out over Ao Nam Mao bay.</span>
+                  <strong class="font-medium text-brand-red" data-i18n="b2_f1">วิวริมทะเล</strong>
+                  <span class="block text-brand-mute" data-i18n="b2_f1d">โต๊ะกลางแจ้งมองออกไปยังอ่าวน้ำเมา</span>
                 </span>
               </li>
               <li
@@ -842,8 +896,8 @@
                   </svg>
                 </span>
                 <span>
-                  <strong class="font-medium text-brand-red">Spacious Private Parking Available</strong>
-                  <span class="block text-brand-mute">Convenient if you are driving from Ao Nang or Krabi Town.</span>
+                  <strong class="font-medium text-brand-red" data-i18n="b2_f2">มีที่จอดรถส่วนตัวกว้างขวาง</strong>
+                  <span class="block text-brand-mute" data-i18n="b2_f2d">สะดวกหากขับรถมาจากอ่าวนางหรือตัวเมืองกระบี่</span>
                 </span>
               </li>
               <li class="flex items-start gap-3 text-sm text-brand-ink">
@@ -856,8 +910,8 @@
                   </svg>
                 </span>
                 <span>
-                  <strong class="font-medium text-brand-red">Romantic Sunset Ambience</strong>
-                  <span class="block text-brand-mute">Arrive 17:00–18:30 for the golden hour over the sea.</span>
+                  <strong class="font-medium text-brand-red" data-i18n="b2_f3">บรรยากาศพระอาทิตย์ตก</strong>
+                  <span class="block text-brand-mute" data-i18n="b2_f3d">มาช่วง 17:00–18:30 เพื่อชมแสงทองยามเย็น</span>
                 </span>
               </li>
             </ul>
@@ -871,15 +925,14 @@
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
-              Chat on WhatsApp (Branch 2)
+              <span data-i18n="b2_wa">แชท WhatsApp (สาขา 2)</span>
             </a>
 
             <div class="mt-8 overflow-hidden rounded-xl border border-brand-black/10">
               <p
                 class="bg-brand-red px-4 py-2 text-[10px] uppercase tracking-[0.28em] text-brand-gold"
-              >
-                Map · Branch 2 · Ao Nam Mao, Sai Thai
-              </p>
+                data-i18n="b2_map"
+              >แผนที่ · สาขา 2 · อ่าวน้ำเมา ไสไทย</p>
               <iframe
                 title="Google Map of KoDam Kitchen Branch 2, Beachfront & Seaside"
                 class="h-64 w-full sm:h-72"
@@ -897,23 +950,49 @@
       id="hours"
       class="border-t border-brand-black/10 bg-[#fafafa] px-6 py-16 text-center"
     >
-      <p class="text-xs uppercase tracking-[0.4em] text-brand-gold">Hours</p>
-      <p class="mt-3 font-serif text-3xl text-brand-red">Open daily · 11:00 – 22:30</p>
-      <p class="mt-3 text-sm text-brand-mute">
-        Reservations: Branch 1
-        <a class="text-brand-red hover:underline" href="mailto:kodamkitchen19@gmail.com"
-          >kodamkitchen19@gmail.com</a
-        >
-        · Branch 2
-        <a class="text-brand-red hover:underline" href="mailto:kodamkitchen29@gmail.com"
-          >kodamkitchen29@gmail.com</a
-        >
-      </p>
+      <p class="text-xs uppercase tracking-[0.4em] text-brand-gold" data-i18n="hours_label">เวลาเปิดทำการ</p>
+      <p class="mt-3 font-serif text-3xl text-brand-red" data-i18n="hours_title">เปิดทุกวัน · 11:00 – 22:30</p>
+
+      <div class="mx-auto mt-12 max-w-3xl">
+        <p
+          class="text-xs uppercase tracking-[0.35em] text-brand-gold"
+          data-i18n="reserve_label"
+        >จองโต๊ะและสำรองที่นั่ง</p>
+        <div class="mx-auto mt-4 h-px w-20 bg-gradient-to-r from-transparent via-brand-black/25 to-transparent"></div>
+        <div class="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
+          <div class="text-center">
+            <p
+              class="font-serif text-xl text-brand-red sm:text-2xl"
+              data-i18n="reserve_b1_name"
+            >Kodam Kitchen สาขา 1</p>
+            <p class="mt-2 text-sm text-brand-mute">
+              <span data-i18n="email_label">อีเมล</span>:
+              <a
+                class="text-brand-red hover:underline"
+                href="mailto:kodamkitchen19@gmail.com"
+                >kodamkitchen19@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="text-center">
+            <p
+              class="font-serif text-xl text-brand-red sm:text-2xl"
+              data-i18n="reserve_b2_name"
+            >Kodam Kitchen สาขา 2</p>
+            <p class="mt-2 text-sm text-brand-mute">
+              <span data-i18n="email_label">อีเมล</span>:
+              <a
+                class="text-brand-red hover:underline"
+                href="mailto:kodamkitchen29@gmail.com"
+                >kodamkitchen29@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <footer class="border-t border-brand-black bg-brand-black px-6 py-8 text-center text-xs tracking-wide text-white/70">
-      © KoDam Kitchen · Ao Nang &amp; Ao Nam Mao, Krabi
-    </footer>
+    <footer class="border-t border-brand-black bg-brand-black px-6 py-8 text-center text-xs tracking-wide text-white/70" data-i18n="footer">© KoDam Kitchen · อ่าวนาง และ อ่าวน้ำเมา กระบี่</footer>
 
     <div
       id="lightbox"
@@ -964,6 +1043,7 @@
       </div>
     </div>
 
+    <script src="i18n.js"></script>
     <script>
       (function () {
         const items = Array.from(document.querySelectorAll(".gallery-item"));
