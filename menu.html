@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th" data-lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KoDam Kitchen | เมนูทั้งหมด</title>
+    <meta
+      name="description"
+      content="เมนูอาหารไทยและซีฟู้ดทั้งหมดที่ KoDam Kitchen กระบี่"
+    />
+    <link rel="icon" href="images/kodam-kitchen-logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="images/kodam-kitchen-logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                red: "#b40100",
+                gold: "#ffd915",
+                black: "#111111",
+                ink: "#2a2a2a",
+                mute: "#5c5c5c",
+              },
+            },
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', '"Kanit"', "Georgia", "serif"],
+              sans: ['"Outfit"', '"Kanit"', "system-ui", "sans-serif"],
+              thai: ['"Kanit"', "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 18px 50px rgba(0,0,0,0.08)",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Kanit:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :lang(th),
+      .font-thai {
+        font-family: "Kanit", sans-serif;
+      }
+      html[data-lang="zh"] body,
+      html[lang="zh-CN"] body {
+        font-family: "Noto Sans SC", "Outfit", sans-serif;
+      }
+      .lang-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.2rem;
+        border: 1px solid rgba(17, 17, 17, 0.15);
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.85);
+      }
+      .lang-btn {
+        border: 0;
+        background: transparent;
+        color: rgba(17, 17, 17, 0.7);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        padding: 0.4rem 0.65rem;
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+      .lang-btn:hover {
+        color: #111;
+        background: rgba(180, 1, 0, 0.08);
+      }
+      .lang-btn.is-active {
+        background: #b40100;
+        color: #fff;
+      }
+      .menu-page canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body class="bg-[#fafafa] text-brand-ink font-sans antialiased">
+    <header class="sticky top-0 z-20 border-b border-brand-black/10 bg-white/95 backdrop-blur">
+      <div
+        class="mx-auto flex max-w-5xl items-center justify-between px-5 py-4 sm:px-8"
+      >
+        <a href="index.html" class="group inline-flex items-center gap-3">
+          <img
+            src="images/kodam-kitchen-logo.png"
+            alt="KoDam Kitchen"
+            class="h-14 w-14 rounded-md object-cover shadow-soft ring-1 ring-brand-black/10 sm:h-16 sm:w-16"
+          />
+          <span class="hidden text-left sm:block">
+            <span class="block font-serif text-xl text-brand-red">KoDam Kitchen</span>
+            <span class="block text-xs tracking-wide text-brand-mute" data-i18n="menu_page_back">← กลับหน้าหลัก</span>
+          </span>
+        </a>
+        <div class="flex items-center gap-3 sm:gap-5">
+          <a
+            href="index.html"
+            class="text-sm text-brand-mute transition hover:text-brand-red sm:hidden"
+            data-i18n="menu_page_back"
+          >← กลับหน้าหลัก</a>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" class="lang-btn is-active" data-lang="th" aria-pressed="true">ไทย</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+            <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中文</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="px-4 py-10 sm:px-8 lg:py-14">
+      <div class="mx-auto mb-10 max-w-3xl text-center">
+        <h1
+          class="font-thai text-4xl text-brand-red sm:text-5xl"
+          data-i18n="menu_page_title"
+        >เมนูทั้งหมด</h1>
+        <p
+          class="mt-2 font-serif text-2xl text-brand-black/80 sm:text-3xl"
+          data-i18n="menu_page_subtitle"
+        >Full Menu</p>
+        <div
+          class="mx-auto mt-5 h-px w-24 bg-gradient-to-r from-transparent via-brand-black/30 to-transparent"
+        ></div>
+        <p class="mt-5 text-brand-mute" data-i18n="menu_page_intro">เลื่อนดูเมนูอาหารไทยและซีฟู้ดทั้งหมดของร้าน</p>
+      </div>
+
+      <div
+        id="menu-pages"
+        class="mx-auto flex max-w-3xl flex-col gap-6"
+        aria-live="polite"
+      >
+        <p id="menu-loading" class="py-16 text-center text-brand-mute" data-i18n="menu_page_loading">กำลังโหลดเมนู…</p>
+      </div>
+    </main>
+
+    <footer
+      class="border-t border-brand-black bg-brand-black px-6 py-8 text-center text-xs tracking-wide text-white/70"
+      data-i18n="footer"
+    >© KoDam Kitchen · อ่าวนาง และ อ่าวน้ำเมา กระบี่</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="i18n.js"></script>
+    <script>
+      (function () {
+        const files = [
+          "menu-pdfs/menu-new-1.1.pdf",
+          "menu-pdfs/menu-new-1.2.pdf",
+          "menu-pdfs/sig1.pdf",
+          "menu-pdfs/sig2.pdf",
+          "menu-pdfs/01.pdf",
+          "menu-pdfs/02.pdf",
+          "menu-pdfs/03.pdf",
+          "menu-pdfs/04.pdf",
+          "menu-pdfs/05.pdf",
+          "menu-pdfs/06.pdf",
+          "menu-pdfs/07.pdf",
+          "menu-pdfs/08.pdf",
+          "menu-pdfs/09.pdf",
+          "menu-pdfs/10.pdf",
+          "menu-pdfs/11.pdf",
+          "menu-pdfs/12.pdf",
+          "menu-pdfs/13.pdf",
+          "menu-pdfs/14.pdf",
+          "menu-pdfs/19.pdf",
+          "menu-pdfs/veg1.pdf",
+          "menu-pdfs/veg2.pdf",
+        ];
+
+        const container = document.getElementById("menu-pages");
+        const loading = document.getElementById("menu-loading");
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+        async function renderFile(url, index) {
+          const pdf = await pdfjsLib.getDocument(url).promise;
+          const wrap = document.createElement("article");
+          wrap.className =
+            "menu-page overflow-hidden rounded-lg border border-brand-black/10 bg-white shadow-soft";
+          wrap.setAttribute("aria-label", "Menu page " + (index + 1));
+
+          for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const base = page.getViewport({ scale: 1 });
+            const targetWidth = Math.min(900, window.innerWidth - 32);
+            const scale = targetWidth / base.width;
+            const viewport = page.getViewport({ scale: Math.min(scale, 2) });
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+            wrap.appendChild(canvas);
+          }
+
+          container.appendChild(wrap);
+        }
+
+        async function loadAll() {
+          try {
+            for (let i = 0; i < files.length; i++) {
+              await renderFile(files[i], i);
+            }
+          } catch (err) {
+            console.error(err);
+            if (loading) {
+              loading.textContent = "Unable to load menu PDFs.";
+              loading.removeAttribute("data-i18n");
+            }
+            return;
+          }
+          if (loading) loading.remove();
+        }
+
+        loadAll();
+      })();
+    </script>
+  </body>
+</html>
