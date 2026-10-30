@@ -29,7 +29,6 @@
       menu_page_subtitle: "Our complete menu",
       menu_page_intro: "Scroll to browse every page of our Thai and seafood menu.",
       menu_page_back: "← Back to home",
-      menu_page_loading: "Loading menu…",
       dish1_name: "แกงส้มปลากระพง",
       dish1_en: "Sour Curry with Sea Bass",
       dish1_desc:
@@ -127,7 +126,6 @@
       menu_page_subtitle: "เมนูอาหารทั้งหมดของร้าน",
       menu_page_intro: "เลื่อนดูเมนูอาหารไทยและซีฟู้ดทั้งหมดของร้าน",
       menu_page_back: "← กลับหน้าหลัก",
-      menu_page_loading: "กำลังโหลดเมนู…",
       dish1_name: "แกงส้มปลากระพง",
       dish1_en: "Sour Curry with Sea Bass",
       dish1_desc:
@@ -225,7 +223,6 @@
       menu_page_subtitle: "本店全部菜品",
       menu_page_intro: "向下滑动查看全部泰餐与海鲜菜单。",
       menu_page_back: "← 返回首页",
-      menu_page_loading: "菜单加载中…",
       dish1_name: "酸汤鲈鱼",
       dish1_en: "Sour Curry with Sea Bass",
       dish1_desc: "南泰风味酸辣汤，配嫩滑鲈鱼与竹笋，汤底香浓开胃。",
