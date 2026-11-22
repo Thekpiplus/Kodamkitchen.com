@@ -1,0 +1,13 @@
+{
+  "name": "kodamkitchen",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "convert:webp": "node scripts/convert-to-webp.mjs",
+    "watch:webp": "node scripts/watch-images.mjs",
+    "prepare": "node scripts/install-git-hooks.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.34.4"
+  }
+}

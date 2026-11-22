@@ -1,0 +1,13 @@
+---
+description: Always store and reference website images as .webp
+alwaysApply: true
+---
+
+# Auto WebP images
+
+- All website images under `images/` must be `.webp`.
+- Never commit or leave `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.tif`, `.tiff`, or `.avif` in `images/`.
+- After adding or downloading any raster image, run `npm run convert:webp` (or let the watcher / git hook / Cursor hook convert it).
+- HTML/JS/CSS `src`, `href`, `data-src`, and CSS `url(...)` must use `.webp` paths.
+- Favicon / apple-touch-icon must use `images/kodam-kitchen-logo.webp` with `type="image/webp"`.
+- For continuous auto-convert while dropping files into `images/`, run `npm run watch:webp`.
