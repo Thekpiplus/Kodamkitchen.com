@@ -88,6 +88,15 @@
         background: #b40100;
         color: #fff;
       }
+      html {
+        scroll-behavior: auto;
+      }
+      @media (hover: none) and (pointer: coarse) {
+        html {
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
     </style>
   </head>
   <body class="bg-[#fafafa] text-brand-ink font-sans antialiased">
@@ -292,5 +301,6 @@
     >© KoDam Kitchen · อ่าวนาง และ อ่าวน้ำเมา กระบี่</footer>
 
     <script src="i18n.js"></script>
+    <script src="smooth-scroll.js"></script>
   </body>
 </html>

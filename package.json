@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "node scripts/dev-server.mjs",
     "convert:webp": "node scripts/convert-to-webp.mjs",
     "watch:webp": "node scripts/watch-images.mjs",
     "prepare": "node scripts/install-git-hooks.mjs"

@@ -114,6 +114,15 @@
         transform: scale(1);
         opacity: 1;
       }
+      html {
+        scroll-behavior: auto;
+      }
+      @media (hover: none) and (pointer: coarse) {
+        html {
+          scroll-behavior: smooth;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
     </style>
   </head>
   <body class="bg-white text-brand-ink font-sans antialiased">
@@ -1070,6 +1079,7 @@
     </div>
 
     <script src="i18n.js"></script>
+    <script src="smooth-scroll.js"></script>
     <script>
       (function () {
         const items = Array.from(document.querySelectorAll(".gallery-item"));
@@ -1090,6 +1100,7 @@
           lightbox.classList.add("is-open");
           lightbox.setAttribute("aria-hidden", "false");
           document.body.style.overflow = "hidden";
+          if (window.kodamSmoothScroll) window.kodamSmoothScroll.stop();
         }
 
         function closeLightbox() {
@@ -1097,6 +1108,7 @@
           lightbox.setAttribute("aria-hidden", "true");
           document.body.style.overflow = "";
           image.src = "";
+          if (window.kodamSmoothScroll) window.kodamSmoothScroll.start();
         }
 
         items.forEach((item, index) => {
